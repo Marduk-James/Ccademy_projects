@@ -12,9 +12,9 @@ def unique_english_letters(word):       # Defines a function called unique_engli
             uniques += 1                # If a unique letter is found this counter adds 1 to uniques
     return uniques                      # Returns the total number of unique letters in the word.
 
-# print(unique_english_letters("Mississippi"))
+print(unique_english_letters("Mississippi"))
 
-# print(unique_english_letters("Georgia"))
+print(unique_english_letters("Georgia"))
 
 
 
@@ -27,11 +27,11 @@ def count_char_x(word, x):              # Defines a function called count_char_x
             char += 1                   # Add 1 to the variable char
     return char                         # Returns the amount of times (x) appears in (word)
 
-# print(count_char_x("mississippi", "s"))
+print(count_char_x("mississippi", "s"))
 
-# print(count_char_x("mississippi", "m"))
+print(count_char_x("mississippi", "m"))
 
-# print(count_char_x("mississippi", "i"))
+print(count_char_x("mississippi", "i"))
 
 
 
@@ -49,5 +49,28 @@ print(count_multi_char_x("Hello, World!", "l"))
 
 # 4. Substring Between:
 
-def substring_between_letters(word, start, end):
-    
+def substring_between_letters(word, start, end):        # Defines a function called substring_between_letters with 3 parameters (word, start, end).
+    start_point = word.find(start)                      # Finds the start point in (word)
+    end_point = word.find(end)                          # Finds the end point in (word)
+    if start_point > -1 and end_point > -1:             # Says that if both (start and end) are found then ... 
+        return (word[start_point + 1: end_point])       # Prints the string between (start and end) in (word)
+    return word                                         # If both start and end are not found then just the original (word) will be returned.
+
+print(substring_between_letters("apple", "p", "e"))
+
+print(substring_between_letters("apple", "p", "c"))
+
+
+
+# 5. X Length:
+
+def x_length_words(sentence, x):                # Defines a function called x_length_words with 2 parameters (sentence, x)
+    words = sentence.split(" ")                 # Splits the sentence at every space (" ")
+    for word in words:                          # Check each word after the split
+        if len(word) < x:                       # If the length of a word is less than (x)...
+            return False                            # Return False
+    return True                                 # If all the words are greater than (x) return True.
+
+print(x_length_words("i like apples", 2))       # Should print False
+
+print(x_length_words("he likes apples", 2))     # Should print True
